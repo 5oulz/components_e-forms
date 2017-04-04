@@ -1,0 +1,35 @@
+<div class="examiner-pic-wrapper">
+    <div class="examiner-pic-mask"></div>
+</div>
+<div class="examiner-fields-wrapper">
+    <input class="examiner-field-info examiner-position" value="Position 'CM X'" disabled/>
+    <input class="examiner-field-info examiner-name" value="First name + Last name" disabled/>
+    <input class="examiner-field-info examiner-number" value="TAP Number" disabled/>
+</div>
+<div class="examiner-buttons-wrapper">
+    <button class="examiner-edit-button">change examiner</button>
+</div>
+
+<div class="examiner-edit-wrapper">
+    <div class="examiner-pic-wrapper">
+        <div class="examiner-pic-mask"></div>
+    </div>
+    <div class="examiner-fields-wrapper">
+        <input class="examiner-field-info examiner-position" value="Position 'CM X'" />
+        <input class="examiner-field-info examiner-name" value="First name + Last name" />
+        <input class="examiner-field-info examiner-number" value="TAP Number" />
+    </div>
+    <div class="examiner-buttons-wrapper">
+        <button class="examiner-confirm-button">confirm</button>
+    </div>
+</div>
+
+<script>
+    $('.examiner-edit-button').bind('click', function() {
+        $(this).parents('.examiner-wrapper').addClass('notComplete');
+    });
+
+    $('.examiner-confirm-button').bind('click', function() {
+        $(this).parents('.examiner-wrapper').removeClass('notComplete');
+    });
+</script>

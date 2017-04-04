@@ -1,0 +1,200 @@
+@import '_common';
+
+$person-box-height: 200px;
+$person-box-bottom-top-height: 200px/2;
+$questions-sub-header-height: 40px;
+
+@mixin openQuestionTransition() {
+	-webkit-transition: height 0.33s ease-out, padding 0.33s ease-out;
+	-o-transition: height 0.33s ease-out, padding 0.33s ease-out;
+	transition: height 0.33s ease-out, padding 0.33s ease-out;
+}
+
+// change input height if these values change
+
+.question-item {
+	display: block;
+	position: relative;
+	width: 100%;
+	margin: 30px 0;
+	border-radius: 3px;
+	overflow: hidden;
+	box-shadow: 0 2px 2px 0 rgba(102, 102, 102, 0.12);
+	background-color: palette(background, person-boxes);
+}
+
+/**
+ * questions
+ **/
+.question-item-header {
+	display: block;
+	position: relative;
+	height: 75px;
+	padding: 25px 40px;
+	cursor: pointer;
+	@include snake-animation(0.33);
+}
+
+.question-item-header-number,
+.question-item-header-title {
+	 display: inline-block;
+	 position: relative;
+	 height: 25px;
+	 width: 30px;
+	 height: 100%;
+	 margin: 0;
+	 line-height: 25px;
+	 font-weight: 600;
+	 font-size: 15px;
+	 text-transform: uppercase;
+}
+
+.question-item-header-title {
+	 width: 200px;
+}
+
+.sub-question-item-number,
+.sub-question-item-title {
+	 display: inline-block;
+	 position: relative;
+	 height: 25px;
+	 width: 30px;
+	 height: 100%;
+	 margin: 0;
+	 line-height: 25px;
+	 font-weight: 600;
+	 font-size: 15px;
+	 text-transform: uppercase;
+}
+
+.sub-question-item-title {
+	 width: 200px;
+}
+
+.questions-group-zone {
+	 display: block;
+	 position: relative;
+	 width: 100%;
+}
+
+.question-sub-title {
+	 display: block;
+	 position: relative;
+	 width: 100%;
+	 height: 0px;
+	 padding: 0;
+	 font-weight: 600;
+	 font-size: 15px;
+	 text-transform: uppercase;
+	 background-color: palette(background, sub-title-questions);
+
+	 @include openQuestionTransition();
+}
+
+.question-sub-header-name {
+	display: inline-block;
+	position: relative;
+	width: 200px;
+	height: 100%;
+	 margin: 0;
+	 line-height: 1.5;
+}
+
+.question-sub-question-item {
+	 display: block;
+	 position: relative;
+	 width: 100%;
+	 height: 0px;
+	 padding: 0;
+	 border: none;
+	 background-color: #fff;
+
+	 @include openQuestionTransition();
+}
+
+.sub-question-item-title {
+	 text-transform: none;
+}
+
+.sub-question-answers-wrapper,
+.questions-sub-choices {
+	display: inline-block;
+	position: relative;
+	float: right;
+	width: 250px;
+	height: 100%;
+}
+
+.answer-options-header {
+	display: inline-block;
+	position: relative;
+	width: 33.3%;
+	height: 100%;
+	float: left;
+	font-size: 10px;
+	line-height: 2;
+	text-align: center;
+	text-transform: uppercase;
+
+	&.clickable {
+		border-radius: 4px;
+		background-color: palette(background, standard-select-all);
+		cursor: pointer;
+	}
+}
+
+.radio-click-wrapper {
+	display: inline-block;
+	position: relative;
+	float: left;
+	width: 33.3%;
+	height: 100%;
+
+	input[type=radio] {
+		display: none;
+	}
+
+	label {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 30px;
+		margin: auto;
+		border-radius: 50%;
+		background-color: palette(background, base);
+	}
+
+	input:checked + label {
+		background-color: palette(answers, standard);
+	}
+
+	&:nth-of-type(2) {
+		input:checked + label {
+			background-color: palette(answers, non-standard);
+		}
+	}
+
+	&:nth-of-type(3) {
+		input:checked + label {
+			background-color: palette(answers, n-a);
+		}
+	}
+}
+
+.question-item.open {
+	 .question-sub-title {
+		padding: 10px 40px;
+		height: $questions-sub-header-height;
+		cursor: pointer;
+	 }
+}
+
+.questions-group-zone.open {
+
+	 .question-sub-question-item {
+		height: 75px;
+		padding: 25px 40px;
+		border: 1px solid palette(border, question-border);
+	 }
+
+}

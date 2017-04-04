@@ -1,0 +1,63 @@
+@mixin component-shadow() {
+    box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.14);
+}
+
+@mixin ellipsis-style() {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin snake-animation($time) {
+    overflow: hidden;
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        background-color: palette(border, box-left-border);
+
+        -webkit-transition: transform $time ease-out;
+        -o-transition: transform $time ease-out;
+        transition: transform $time ease-out;
+    }
+
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: palette(border, box-left-border);
+
+        -webkit-transition: transform $time ease-out;
+        -o-transition: transform $time ease-out;
+        transition: transform $time ease-out;
+
+        -webkit-transform: translateX(-100%);
+        -ms-transform: translateX(-100%);
+        -o-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    &.notComplete {
+        &:before {
+            -webkit-transform: translateY(-100%);
+            -ms-transform: translateY(-100%);
+            -o-transform: translateY(-100%);
+            transform: translateY(-100%);
+        }
+
+        &:after {
+            -webkit-transform: none;
+            -ms-transform: none;
+            -o-transform: none;
+            transform: none;
+        }
+    }
+}
