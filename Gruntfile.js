@@ -174,7 +174,7 @@ module.exports = function (grunt) {
           }],
 
           modules: [{name: 'main'}],
-          baseUrl: '<%= yeoman.app %>/scripts',
+          baseUrl: '<%= yeoman.app %>',
 
           mainConfigFile: '<%= yeoman.app %>/scripts/main.js', // contains path specifications and nothing else important with respect to config
 
@@ -362,7 +362,7 @@ module.exports = function (grunt) {
     'handlebars',
     'sass:dist',
     'useminPrepare',
-    'imagemin',
+    //'imagemin',
     'htmlmin',
     'concat',
     'cssmin',
